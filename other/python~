@@ -1,0 +1,10 @@
+# Chapter 10: Recursively recurse with recursion
+
+# Accept the number. Display the number from 10 to 0.
+
+def loop(num):
+    for x in range(num)
+    print(x)
+
+
+loop(print)

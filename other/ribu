@@ -1,11 +1,10 @@
 def sum(arr)
   # base condition
-  if arr.count == 1
+  if arr[arr.count] == 1
     return arr.sum
   else
     puts "in recu"
-    sum(arr[arr.count-2]) + arr[arr.count-1]
-    (arr[0...arr.count-2]).sum + arr[count-1]
+    #sum(arr) + arr[arr.count-1]
   end
 end
 

@@ -10,23 +10,27 @@
 # 4. Write recursion line by taking out the next-to-last case from base case
 # average(arr[0..count-2])
 
-
-def average(arr, count)
+def average(arr)
+  count = arr.count
   if count == 1
     arr[0..count-1].sum/count
   else
-    average(arr[0..count-2].sum / (count-1)) * arr[0..count-1].sum
+    sum = average(arr[0..count-2])) * arr[0..count-1].sum
   end
+  sum / count
 end
 
+# array sum / array length
+# sum of array-1 / array length-1 * array-1
+
+
+
+
 a = [1,2,3,4,5]
-a_count = a.count
-p average(a, a_count) == 3
+p average(a) == 3
 
 b = [0,10]
-b_count = b.count
-p average(b, b_count) == 5 
+p average(b) == 5 
 
 c = [1]
-c_count = c.count
-p average(c, c_count) == 1
+p average(c) == 1

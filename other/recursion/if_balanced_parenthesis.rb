@@ -5,8 +5,8 @@
 def is_balanced?(string)
   return false if string.empty?   
     arr = string.chars.delete_if { |s| s == "," }
-  if arr.count > 0 && arr.count.odd?
-    p "inside odd" 
+  if arr.count.odd?
+    false
   else 
     p "inside even"
   end

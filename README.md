@@ -1,1 +1,1 @@
-# algoritmn practice
+# algorithmn practice

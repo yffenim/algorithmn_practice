@@ -14,8 +14,11 @@ def is_balanced?(string)
   # function that describs the match
   # match for '()' and if it exists, remove it by replacing it with empty quotes
   string.gsub!("#{match}","")
-  # return false if there is only 1 bracket left in the string:
-  return false if string.length == 1
+
+  # need a return for if there are no matches but string is still full of brackets
+  # ???
+  # return false unless string["#{match}"] does not work?
+
   # recursion call:
   is_balanced?(string)
 end

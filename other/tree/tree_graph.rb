@@ -1,7 +1,9 @@
 class Graph
-  
-  # default root node for new tree graph
-  def intialize(value=1)
+  # allows us to access the value of value
+  attr_reader :value
+
+  # default root node for new tree graph with default value of 1
+  def initialize(value)
     @value = value
   end
 
@@ -9,8 +11,15 @@ class Graph
     "I am an edge"
   end
 
+  def inspect 
+    "Node value: #{value}"
+    # add ability to display all children
+  end
+
+  def sum
+  end
+
 end
 
-test = Graph.new
-p test
-p test.edges
+test = Graph.new(1)
+p test.inspect

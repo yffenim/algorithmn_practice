@@ -34,7 +34,6 @@ class Node < Tree
   attr_accessor :value
   
   def initialize(value)
-
     @@nodes << self
   end
 

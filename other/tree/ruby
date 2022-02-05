@@ -1,6 +1,4 @@
 class Tree
-  attr_accessor :sum
-
   # array of all nodes in the graph
   @@nodes = []
   
@@ -10,24 +8,21 @@ class Tree
   end
 
   # sum of all values of nodes
-  def sum
+  def sum 
     # default sum is 1 because we have 1 node 
     sum = 1
 
     # if there are more than 1 nodes
     if @@nodes.count > 1
-      arr = []
-      @@nodes.each do | node |
+    @@nodes.each do | node |
       arr << node.value 
       sum = arr.sum
     end
     end
-    sum
   end
 
   # print the current Tree
   def print 
-    "I am printing?"
   end
 end 
 
@@ -58,7 +53,8 @@ p one.value
 p two.value
 
 p Tree.all
-p Tree.new.sum
+p Tree.all.count
+p Tree.sum
 
 #three = Tree.new(3)
 #four = Tree.new(4)

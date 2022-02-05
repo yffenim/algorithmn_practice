@@ -13,14 +13,13 @@ class Tree
   def sum
     # default sum is 1 because we have 1 node 
     sum = 1
-
     # if there are more than 1 nodes
     if @@nodes.count > 1
       arr = []
       @@nodes.each do | node |
       arr << node.value 
       sum = arr.sum
-    end
+      end
     end
     sum
   end
@@ -33,11 +32,9 @@ end
 
 class Node < Tree
   attr_accessor :value
-
-  # add new node instance to the nodes array
+  
   def initialize(value)
-    @value = value
-    # default root node for new tree graph with default value of 1
+
     @@nodes << self
   end
 
@@ -51,13 +48,12 @@ class Node < Tree
   #end
 end
 
-one = Node.new(1)
-two = Node.new(2)
+one = Node.new
+two = Node.new
 
 p one.value
 p two.value
 
-p Tree.all
 p Tree.new.sum
 
 #three = Tree.new(3)

@@ -40,9 +40,9 @@ class Node < Tree
     @@nodes << self
   end
 
-  #def edges
-   # "I am an edge"
-  #end
+  def add_edges
+    "I am an edge"
+  end
 
   # debug method for displaying object attributes by just calling the object
   # def inspect 

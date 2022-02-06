@@ -17,4 +17,6 @@
     next_greater_element_helper(array)
   end
 
-p print([1,3,5,2,4]) == [3,5,-1,4,-1]
+p next_greater_element([2,4],[1,2,3,4]) == [3,-1]
+p next_greater_element([4,1,2],[1,3,4,2]) == [-1,3,-1]
+

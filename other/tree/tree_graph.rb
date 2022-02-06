@@ -26,7 +26,9 @@ class Tree
 
   # print the current Tree
   def print 
-    "I am printing?"
+    @@nodes.each do | node |
+      pp node
+    end
   end
 end 
 
@@ -34,6 +36,7 @@ class Node < Tree
   attr_accessor :value
   
   def initialize(value)
+    @value = value
     @@nodes << self
   end
 
@@ -47,14 +50,14 @@ class Node < Tree
   #end
 end
 
-one = Node.new
-two = Node.new
+one = Node.new(1)
+two = Node.new(2)
 
 p one.value
 p two.value
 
 p Tree.new.sum
-
+Tree.new.print
 #three = Tree.new(3)
 #four = Tree.new(4)
 #five = Tree.new(5)

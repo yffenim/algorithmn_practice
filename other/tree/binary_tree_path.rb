@@ -44,4 +44,9 @@ def binary_tree_paths(root)
 end
 
 binary_tree_paths([1,2,3,nil,5]) == ["1->2->5","1->3"]
+binary_tree_paths([1,2,3,nil,5]) == ["1->2->5","1->3"]
+binary_tree_paths([1,2,nil,4,5]) == ["1->2->4","1->2->5"]
+binary_tree_paths([1,2,3]) == ["1->2","1->3"]
+binary_tree_paths([1]) == ["1"]
+binary_tree_paths([1,2,3,4,nil,nil,7]) == ["1->2->4","1->3->7"]
 

@@ -1,6 +1,5 @@
 # Spend 80% of the time understanding the problem and 20% of the time implementing the solution:
 
-# Start 9:15am
 # 10DIME
 #
 # Input: The root array containing the values of all the nodes.
@@ -21,23 +20,6 @@
 #
 # Edge Cases + write examples (tests): 
 # - empty tree
-
-# Definition for a binary tree node.
-
-class TreeNode
-  attr_accessor :val, :left, :right
-  def initialize(val = 0, left = nil, right = nil)
-    @val = val
-    @left = left
-    @right = right
-  end
-end
-
-one = TreeNode.new(1)
-two = TreeNode.new(2)
-tree = TreeNode.new(3)
-four = TreeNode.new(4)
-five = TreeNode.new(5)
 
 # Definition for a binary tree node.
 class TreeNode

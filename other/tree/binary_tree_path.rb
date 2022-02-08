@@ -39,9 +39,52 @@ tree = TreeNode.new(3)
 four = TreeNode.new(4)
 five = TreeNode.new(5)
 
-def binary_tree_paths(root)
-  
+# Definition for a binary tree node.
+class TreeNode
+  attr_accessor :val, :left, :right
+  def initialize(val = 0, left = nil, right = nil)
+    @val = val
+    @left = left
+    @right = right
+  end
 end
+
+one = TreeNode.new(1)
+two = TreeNode.new(2)
+tree = TreeNode.new(3)
+four = TreeNode.new(4)
+five = TreeNode.new(5)
+
+def binary_tree_paths(root)
+  # set index to reflect left child node
+  index = 1  
+  if root.count == 1
+  paths << 1  
+  p paths
+  return paths if root.empty?
+
+  # save root node of a new path
+  if root.count == 1 || root.first == nil
+  # save the root value of 1 into array
+    paths << root.shift
+  
+    # check for left child node
+  if root.first != nil
+    # save the left child
+    paths << root.shift
+    # call recursion with new array 
+    binary_tree_paths(root)
+  elsif root.first != nil
+    # remove the nil element
+    root.shift
+    # save the right child
+    paths << root.shift
+    # save the node
+    binary_tree_paths(root)
+  end
+
+end
+
 
 binary_tree_paths([1,2,3,nil,5]) == ["1->2->5","1->3"]
 binary_tree_paths([1,2,3,nil,5]) == ["1->2->5","1->3"]

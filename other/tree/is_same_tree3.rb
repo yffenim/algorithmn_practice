@@ -49,3 +49,20 @@ tree6node1.right = tree6node2
 p is_same_tree(tree1node1,tree2node1) == true
 p is_same_tree(tree2node1,tree3node1) == false
 p is_same_tree(tree4node1,tree5node1) == false
+
+# 10GDIME
+#
+# Input: the root of two trees
+# Output: whether they are the same tree
+# Goal: Compare the values and structures of the two trees. 
+# 
+# Definitions: What makes the trees different?
+# - if they have different child structure, i.e. their left and right do not match
+# - if they have different values in a node, i.e. the structure matches but the node value does not
+# 
+# Implementation:
+# - 
+#
+#
+# Methods: 
+# - What is the repetitive part of this? The actual traversal part of solving the problem. Therefore, we can use recursion 

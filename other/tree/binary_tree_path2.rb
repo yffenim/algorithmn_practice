@@ -13,4 +13,39 @@
 # 3. Call recursion.
 # 4. Return the collected root values in the appropriate format
 #
-#
+
+def binary_tree_paths(root, nodes=[root], paths=[])
+  return paths if nodes.empty?
+  # search for left child 
+  if root.left != nil
+    # add discovered root to nodes 
+    nodes << root.left
+    # add left child value to paths array 
+    paths << root.left.val
+    # we want to keep searching for the left child from the new node 
+    root = root.left 
+    # call recursion with new root
+    binary_tree_paths(root, nodes, paths)
+    # finished all left children paths
+  end
+  
+  if root.right != nil 
+    nodes << root.left
+    paths << root.right 
+    root = root.right.val
+    binary_tree_paths(root, nodes, paths)
+  end
+
+  if root.right == nil && root.left == nil 
+    # return to the parent node
+    previous_node = nodes.count-2
+    root = previous_node
+    # add the path up to parent node to paths 
+    paths << nodes[0..count-3]
+    binary_tree_paths(root, nodes, paths)
+  end
+  
+end
+
+p binary_tree_paths(node1) == ["1->2->5","1->3"]
+p binary_tree_paths(node5) == ["1"]#

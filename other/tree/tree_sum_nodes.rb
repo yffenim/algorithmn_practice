@@ -25,51 +25,32 @@ node_three.right = node_four
 
 node_six.left = node_seven
 
-# re-examine the sum recursion problem and apply to this problem
-
-
 # sum_of_tree --> another solution (it is actually recursion)
 # --> same-tree
 # --> binary-tree-path
 
-
-def count_node(root)
-  count = 1  
-  # four case
-  # 1. I do not have any children
-  # 2. 1 left, 0 right
-  # 3. 0 left, 1 right
-  # 4. 1 left, 1 right
-  tree_array = []
-    tree_array << root
-    # how to represent the "new" root to pass that into the recursion?
-    while tree_array.count > 0
-      node = tree_array.shift
-      # I've removed the first element so now that second element IS the first element
-
-      # an empty array is passing this logic because [].nil? == false
-      if node.left != nil
-        count += 1
-        tree_array << node.left
-      end
-        # if there is a left child, we want to increment count and make the left child a root so we can do this to that child. 
-        # [r.left]
-      if node.right != nil
-        count += 1
-        tree_array << node.right
-      end
-    end
-  count
+def tree_sum(root, sum=1, nodes=[root])
+  # access root value of given root and save it into the sum var 
+  # find left child, if exists, add to sum
+  # store the left child into array because we still need to search for the next child from the left child 
+  # find right child, if exists, add to sum
+  # store the right child into array 
+  # call recursion 
+  return sum if nodes.empty?
+  # set root to the first node
+  root = nodes.shift
+  # search for children and save into array
+  if root.left != nil 
+    sum += root.left.val
+    nodes << root.left
+  end 
+  if root.right != nil 
+    sum += root.right.val
+    nodes << root.right
+  end
+  tree_sum(root, sum, nodes)
 end
 
-p count_node(node_one) == 7
-
-
-def tree_sum(root)
-  count = count_node(root)
-  
-end
-
-tree_sum(node_one) == 28
+p tree_sum(node_one) == 28
 
 

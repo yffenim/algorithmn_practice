@@ -59,15 +59,11 @@ node_six.left = node_seven
 
   
 def count(root, count=1, nodes=[root])
-
-  # if there are no more nodes
-  if nodes.empty?
-    return count 
-  else
+  return count if nodes.empty?
+  
   # set new root to the first node
-    root = nodes.shift
-  end 
-    # recursion 
+  root = nodes.shift
+  
   if root.left != nil 
     count += 1
     nodes << root.left

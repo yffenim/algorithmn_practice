@@ -35,3 +35,19 @@ node_three.right = node_four
 node_six.left = node_seven
 
 
+# Write Method for: Count, Sum, and Print Tree without using class variables
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

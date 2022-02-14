@@ -1,24 +1,55 @@
 # Given this binary tree defined from LeetCode, I want to print out a pre-order, in-order, and post-order traversal of the tree.
-class BinaryTree 
-  attr_accessor :root 
-  
+#
+# Tree object definition
+class BinaryTree
+  attr_accessor :root
+
   # Initialize a Binary Tree with given root value
   def initialize(root)
-    @root = root 
-  end 
+    @root = root
+  end
 
-# Inorder Traversal: The left subtree is processed before the current node and the right subtree is after the current node 
-# - traverse left subtree until leftmost leafnode, then visit root node, then do the same for the right subtree of every node 
+# PreOrder Traversal:
+# 1. Visit current node (print)
+# 2. Recursively traverse current node's left subtree until leaf
+# 3. Recursively traverse current node's right subtree until leaf
 
- def print_inorder_with_recursion(current)
+# InOrder Traversal:
+# 1. Recursively traverse current node's left subtree until leaf
+# 2. Visit current node (print)
+# 3. Recursively traverse curretn node's right subtree until leaf
+
+# PostOrder Traversal:
+# 1. Recursively traverse current node's left subtree
+# 2. Recursively traverse current node's right subtree
+# 3. Visit current node(print)
+
+  def print_preorder(current)
     return if current.nil?
+    # print/visit current node first
+    print "#{current.val} "
+    print_preorder(current.left)
+    print_preorder(current.right)
+  end
 
-    print_inorder_with_recursion(current.left)
-    print "#{current.data} "
-    print_inorder_with_recursion(current.right)
+  def print_inorder(current)
+    return if current.nil?
+    print_inorder(current.left)
+    # print/visit current node once left subtree is traversed
+    print "#{current.val} "
+    print_inorder(current.right)
+  end
+
+  def print_postorder(current)
+   return if current.nil?
+    print_postorder(current.left)
+    print_postorder(current.right)
+    # print/visit current node start from the leaf nodes
+    print "#{current.val} "
   end
 end
 
+# Tree Node object definition
 class TreeNode
   attr_accessor :val, :left, :right
   def initialize(val = 0, left = nil, right = nil)
@@ -28,7 +59,7 @@ class TreeNode
   end
 end
 
-# Initialize a root node 
+# Initialize a root node
 root = TreeNode.new(1,nil,nil)
 
 # Construct the nodes of the rest of the three
@@ -38,12 +69,14 @@ node4 = TreeNode.new(4,nil,nil)
 node5 = TreeNode.new(5,nil,nil)
 
 # Construct the edges
-root.left = node2 
-root.right = node3 
+root.left = node2
+root.right = node3
 node2.left = node4
-node2.right = node5 
+node2.right = node5
 
-# Initialize a Binary Tree 
+# Initialize a Binary Tree
 tree = BinaryTree.new(root)
 
-pp tree
+tree.print_preorder(root)
+tree.print_inorder(root)
+tree.print_postorder(root)

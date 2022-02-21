@@ -1,4 +1,3 @@
-# new_string = string.reverse[1...-1]
 #
 def reverse_smallest_unit(string)
   # iterate through
@@ -17,11 +16,12 @@ def reverse_smallest_unit(string)
     break
     end 
   end
-  p pointer1 
-  p pointer2
-    
+  
+  array[pointer1..pointer2] = array[pointer1..pointer2].reverse[1...-1]
+  # reversed_unit = smallest_unit.reverse[1...-1]
+  p array
 end
 
-find_unit("((123)4)")
+reverse_smallest_unit("((123)4)")
 
 

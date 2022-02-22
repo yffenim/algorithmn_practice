@@ -14,9 +14,12 @@ def is_palindrome?(s)
   # set pointers and match
   # logic for even/odd
  
-  s.gsub!(/[^a-zA-Z0-9]/,"").downcase!
+  new_string = s.gsub!(/[^a-zA-Z0-9]/,"").downcase
+  # new_string.each_chars
+  # length = new_string.size
+  pointer1 = 0
+  pointer2 = new_string.size - 1
   
-
 
 end
 

@@ -13,7 +13,14 @@ def is_palindrome?(s)
   # remove all non-alphanumeric charaacters and spaces and make lowercase
   # set pointers and match
   # logic for even/odd
-  #
+ 
+  s.gsub!(/[^a-zA-Z0-9]/,"").downcase!
+  
 
 
 end
+
+p is_palindrome?("6%a$sdf_fd-sa!6")
+p is_palindrome?("A man, a plan, a canal: Panama")
+# is_palindrome()
+# is_palindrome()

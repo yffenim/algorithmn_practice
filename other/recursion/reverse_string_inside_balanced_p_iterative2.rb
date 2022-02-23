@@ -5,19 +5,28 @@ def reverse_string_iterative(string)
   pointer1 = 0
   pointer2 = 0
   reverse = []
-  
+  sliced_array = []
+
   array.each_with_index do | char, i |
     if char == ")"
       pointer1 = i 
+      # sliced_array = array.slice(i+0...array.length)
+      # puts "the sliced array half: #{sliced_array}"
       while array[pointer1] != "(" do
         pointer1 -= 1
         reverse << array[pointer1]
-        puts "reverse: #{reverse}"
-        puts "after break"
+        if array[pointer1] == "("
+          pointer2 = pointer1 
+        end
+        #puts "reverse: #{reverse}"
+        #puts "after break"
       end
       reverse.pop
       puts "to be reversed: #{reverse}"    
     end
+    # puts reverse
+    # array = array.slice(0...pointer2) + reverse + sliced_array 
+    # puts "the new array: #{array}"
   end
 end
 

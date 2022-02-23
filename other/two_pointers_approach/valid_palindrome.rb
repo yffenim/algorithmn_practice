@@ -19,10 +19,75 @@
 # return true
 # end`
 
+# Remove all alphnumeric characters without using regex:
+def is_palindrome_noregex(s)
+  match = "abcdefghijklmnopqrstuvwxyz0123456789"
+  array = s.downcase.chars
+  new_string = ""
+
+  # I need to check if the array has the characters in my match string
+  # String has .include? method to match 
+
+  array.each do | char |
+    # if the array element has a match in the alphabet string
+    # save it into the new string
+    if match.include? char 
+      new_string << char 
+    end
+  end
+  new_string == new_string.reverse
+end
+
+# puts "no regex:"
+#p is_palindrome_noregex("0P") == false
+#p is_palindrome_noregex("a.") == true
+# p is_palindrome_noregex("6%a$sdf_fd-sa!6") == true
+#p is_palindrome_noregex("A man, a plan, a canal: Panama") == true
+#p is_palindrome_noregex("abcba*#@^") == true 
+#p is_palindrome_noregex("aaba_") == false
+#p is_palindrome_noregex("") == true
+#p is_palindrome_noregex("aaba_") == false
+
+
+
+
+# Most Concise:
+def is_palindrome(s)
+  s.gsub(/[^a-zA-Z0-9]/,"").downcase == s.gsub(/[^a-zA-Z0-9]/,"").downcase.reverse
+end
+
+
+
+# Two-pointers and a while loop without deletion so no array needed
+
+def is_palindrome_noarr(s)
+  new_string = s.gsub(/[^a-zA-Z0-9]/,"").downcase
+  return true if new_string.empty? || new_string.size == 1 
+  pointer1 = 0
+  pointer2 = new_string.size-1 
+  # match the first and last character for the length of half the array
+  # as soon as they are not matched, return false 
+  loop do  
+    return false if new_string[pointer1] != new_string[pointer2]
+    return true if pointer1 == new_string.size/2
+    pointer1 += 1
+    pointer2 -= 1
+  end
+end
+
+# puts "no array:"
+p is_palindrome_noregex("0P") == false
+p is_palindrome_noarr("a.") == true
+p is_palindrome_noarr("6%a$sdf_fd-sa!6") == true
+p is_palindrome_noarr("A man, a plan, a canal: Panama") == true
+p is_palindrome_noarr("abcba*#@^") == true 
+p is_palindrome_noarr("aaba_") == false
+p is_palindrome_noarr("") == true
+p is_palindrome_noarr("aaaa_") == true
+
 
 # Using two-pointers and a for loop: 
 # Runtime: 88 ms, faster than 85.65% of Ruby online submissions for Valid Palindrome.
-# Memory Usage: 215.8 MB, less than 17.49% of Ruby online submissions for Valid Palindrome.
 
 
 def is_palindrome?(s)
@@ -43,15 +108,20 @@ def is_palindrome?(s)
   end
 end
 
-p is_palindrome?("a.") == true
-p is_palindrome?("6%a$sdf_fd-sa!6") == true
-p is_palindrome?("A man, a plan, a canal: Panama") == true
-p is_palindrome?("abcba*#@^") == true 
-p is_palindrome?("aaba_") == false
-p is_palindrome?("") == true
-p is_palindrome?("aaba_") == false
+# p is_palindrome?("a.") == true
+# p is_palindrome?("6%a$sdf_fd-sa!6") == true
+# p is_palindrome?("A man, a plan, a canal: Panama") == true
+# p is_palindrome?("abcba*#@^") == true 
+# p is_palindrome?("aaba_") == false
+# p is_palindrome?("") == true
+# p is_palindrome?("aaba_") == false
+
+
 # Using reverse
 def is_palindrome(s)
+  return true if s.empty? || s.size == 1
+  new_string = s.gsub(/[^a-zA-Z0-9]/,"").downcase
+  new_string.reverse ==  new_string ? true : false
 end
 
 # Using two-pointers and an each loop
@@ -81,11 +151,12 @@ def is_palindrome_each(s)
   false
 end
 
-# p is_palindrome_each("a.") == true
-# p is_palindrome_each("6%a$sdf_fd-sa!6") == true
-# p is_palindrome_each("A man, a plan, a canal: Panama") == true
-# p is_palindrome_each("abcba*#@^") == true
-# p is_palindrome_each("aaba_") == false
-# p is_palindrome_each("") == true
-# p is_palindrome_each("aaba_") == false
+# puts "reverse method:"
+# p is_palindrome("a.") == true
+# p is_palindrome("6%a$sdf_fd-sa!6") == true
+# p is_palindrome("A man, a plan, a canal: Panama") == true
+# p is_palindrome("abcba*#@^") == true 
+# p is_palindrome("aaba_") == false
+# p is_palindrome("") == true
+#p is_palindrome("aaba_") == false
 

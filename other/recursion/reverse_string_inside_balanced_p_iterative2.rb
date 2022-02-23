@@ -23,12 +23,16 @@ def reverse_string_iterative(string)
       end
       reverse.pop
       puts "to be reversed: #{reverse}"    
+      array = array.slice(0...pointer2) + reverse + sliced_array 
+      puts "array is: #{array}"
     end
-    # puts reverse
+  end
+      puts "array is: #{array}"
+    # puts "#{sliced_array}"
+    # puts "#{array.slice(0..pointer2)}"
     # array = array.slice(0...pointer2) + reverse + sliced_array 
     # puts "the new array: #{array}"
   end
-end
 
 p reverse_string_iterative("((abcd)(dcba))")
 # p reverse_string_iterative("()") == ""

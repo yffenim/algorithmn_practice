@@ -1,6 +1,8 @@
 def reverse_string_iterative(string)
   stack = [] 
   array = string.chars 
+  # reverse = [] # why does this not work here?
+
   array.each do | char | 
     if char == ")"
       reverse = []

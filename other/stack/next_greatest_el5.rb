@@ -11,15 +11,13 @@ def next_greatest_el(nums2)
   last = -1 
   secondlast = -2
 
-  loop do 
-    break if secondlast < -(nums2.count)
+  until secondlast < -(nums2.count) do
     if nums2[last] > nums2[secondlast]
       stack << nums2[last]
       puts "the stack add n: #{stack}"
     elsif nums2[last] < nums2[secondlast]
       if nums2[secondlast] > stack.max
         stack << -1
-        # puts "the stack add -1 is: #{stack}"
       elsif nums2[secondlast] < stack.max
         stack.reverse.each do |s|
           if s > nums2[secondlast]
@@ -27,7 +25,6 @@ def next_greatest_el(nums2)
             break
           end 
         end
-        # puts "the stack add max is: #{stack}"
       end
     end 
     last -= 1

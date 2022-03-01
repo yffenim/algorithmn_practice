@@ -36,10 +36,20 @@ def two_sum_slow(nums, target)
   end
 end
 
+def two_sum(nums, target)
+  hash = {}
+  nums.each_with_index do |n,i|
+    hash[i] = n 
+  end 
+  p hash
+end
+
+
+
 p two_sum([2,7,11,15],9) == [0,1]
-p two_sum([0,1],1) == [0,1]
-p two_sum([3,2,4],6) == [1,2]
-p two_sum([3,3],6) == [0,1]
-p two_sum([3,2,3],6)
+# p two_sum([0,1],1) == [0,1]
+# p two_sum([3,2,4],6) == [1,2]
+# p two_sum([3,3],6) == [0,1]
+# p two_sum([3,2,3],6)
 
 

@@ -10,17 +10,26 @@
 
 # IDEAS:
 # - iterate through the array tracking with index 
-# 
+# - add index to stack
+# - add second index to stack
+# - if they add up to 9, return index, if not remnove the first element from stack
 
 def two_sum(nums, target)
-  
-
+  result = [] 
+  nums.each_with_index do |n, i|
+    break if i+1 == nums.length
+    if n + nums[i+1] == target 
+      result << i
+      result << i+1
+    end 
+  end
+  result
 end
 
 p two_sum([2,7,11,15],9) == [0,1]
-p two_sum([0,0],1) == [0,1]
-p two_sum([2,3,4],6) == [1,2]
+p two_sum([0,1],1) == [0,1]
+p two_sum([3,2,4],6) == [1,2]
 p two_sum([3,3],6) == [0,1]
-
+p two_sum([3,2,3],6)
 
 

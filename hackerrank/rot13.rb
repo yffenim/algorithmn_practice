@@ -6,11 +6,7 @@ def assert &block
 end
 
 def rot13(secret_messages)
-    words = secret_messages.split
-    new = words.map do | w | 
-        w.tr('A-Za-z','N-ZA-Mn-za-m')
-    end
-    new.join(" ")
+    secret_messages.split.map { |w| w.tr('A-Za-z','N-ZA-Mn-za-m') }.join(" ")
 end
 
 

@@ -15,16 +15,12 @@
 # - if they add up to 9, return index, if not remnove the first element from stack
 
 def two_sum(nums, target)
-  result = [] 
+  hash = {}
   nums.each_with_index do |n, i|
-    break if i+1 == nums.length
-    if n + nums[i+1] == target 
-      result << i
-      result << i+1
-    end 
+    hash[n] = i    
   end
-  result
 end
+
 
 p two_sum([2,7,11,15],9) == [0,1]
 p two_sum([0,1],1) == [0,1]

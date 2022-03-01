@@ -41,8 +41,9 @@ def two_sum(nums, target)
   nums.each_with_index do | n, i |
     hash[i] = n 
   end 
+  puts hash
   nums.each_with_index do | n, i |
-    if hash.key(target-n)
+    if hash.key(target-n) && hash.key(target-n) != i
       return [i, hash.key(target-n)]
     end
   end
@@ -50,10 +51,10 @@ end
 
 
 
-p two_sum([2,7,11,15],9) == [0,1]
-# p two_sum([0,1],1) == [0,1]
-# p two_sum([3,2,4],6) == [1,2]
-# p two_sum([3,3],6) == [0,1]
-# p two_sum([3,2,3],6)
+p two_sum([2,7,11,15],9)
+p two_sum([0,1],1)
+p two_sum([3,2,4],6)
+p two_sum([3,3],6)
+p two_sum([3,2,3],6)
 
 

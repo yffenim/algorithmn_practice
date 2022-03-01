@@ -2,6 +2,9 @@
 # https://stackoverflow.com/questions/1740046/whats-the-difference-between-a-proc-and-a-lambda-in-ruby
 
 # DIFFERENCE 1: procs will not check # of arguments passed in
+# DIFFERENCE 2: lambdas passes control back to calling methodl proc returns out of enclosing method entirely
+
+# Args
 p = Proc.new { |x, y| puts x; puts y }
 # p.call 1,2
 # p.call 1

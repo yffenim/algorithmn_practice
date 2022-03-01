@@ -38,10 +38,14 @@ end
 
 def two_sum(nums, target)
   hash = {}
-  nums.each_with_index do |n,i|
+  nums.each_with_index do | n, i |
     hash[i] = n 
   end 
-  p hash
+  nums.each_with_index do | n, i |
+    if hash.key(target-n)
+      return [i, hash.key(target-n)]
+    end
+  end
 end
 
 

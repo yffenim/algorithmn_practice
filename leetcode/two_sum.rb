@@ -14,13 +14,27 @@
 # - add second index to stack
 # - if they add up to 9, return index, if not remnove the first element from stack
 
-def two_sum(nums, target)
+def two_sum_hash(nums, target)
   hash = {}
+
   nums.each_with_index do |n, i|
-    hash[n] = i    
+    if hash[target-n]
+      return [hash[target-n], i]
+    end
+    hash[n] = i
   end
 end
 
+def two_sum_slow(nums, target)
+  nums.each_with_index do | n, i |
+    nums.each_with_index do | m, j |
+      # compare the next element with the first element 
+      if n + m == target && j > i 
+      return [i,j]
+      end
+    end
+  end
+end
 
 p two_sum([2,7,11,15],9) == [0,1]
 p two_sum([0,1],1) == [0,1]

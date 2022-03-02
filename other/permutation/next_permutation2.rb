@@ -22,9 +22,9 @@ def next_permutation(nums)
       move_element = slice.sort[1]
       # return the index of that element
       i = slice.index(move_element)
-      # move the element from its current position in arr
+      # delete the element from its current position in arr
       slice.delete_at(i)
-      # puts "slice: #{slice}" 
+      puts "slice: #{slice}" 
       
       # slice the original array      
       remove_at_index = pointer2

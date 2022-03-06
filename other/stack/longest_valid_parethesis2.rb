@@ -7,15 +7,23 @@ def longest_valid_parentheses(s)
   return 0 if s.length < 2
   
   stack = [-1]
-  max = [] 
-  result = 0 
+  max = 0
+  array = s.chars
 
-  s.chars.each_with_index do | p, i |
+  array.each_with_index do | p, i |
     if p == "("
       stack << i 
+    else # p == ")"
+      stack.pop
+      if stack.empty?  
+        stack << i
+      else
+        max = [max, i-stack.last].max
+      end
     end
   end
-  p stack
+  max
 end
 
-longest_valid_parentheses("))())(())()")
+p longest_valid_parentheses("(())")
+p longest_valid_parentheses("))())(())()")

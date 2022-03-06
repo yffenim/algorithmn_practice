@@ -14,10 +14,13 @@ def longest_valid_parentheses(s)
   stack = [-1]
   max = 0 
 
-  s.each_with_index do | bracket |
-    if bracket == ")"
-      
-
+  s.each_with_index do | bracket, i |
+    if bracket == "("      
+      stack << i 
+    else 
+     # check for empty
+    end
+  max 
 end
 
 p longest_valid_parentheses("())(())()") == 6

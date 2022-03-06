@@ -8,9 +8,15 @@
 #   if empty: add i bc you are at a lonely bracket
 #   if not empty: pop last, call max
 
-
-
 def longest_valid_parentheses(s)
+  return 0 if s.length < 2
+  
+  stack = [-1]
+  max = 0 
+
+  s.each_with_index do | bracket |
+    if bracket == ")"
+      
 
 end
 

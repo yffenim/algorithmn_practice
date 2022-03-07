@@ -21,7 +21,6 @@ class TreeNode
 end
 
 
-
 # Construct the nodes of the rest of the three
 root = TreeNode.new(1, nil, nil)
 node2 = TreeNode.new(2,nil,nil)
@@ -37,4 +36,4 @@ node2.right = node5
 
 
 tree = BinaryTree.new(root)
-p new
+p tree

@@ -6,6 +6,18 @@ class BinaryTree
     @root = root 
   end
 
+  def count_nodes(root)
+    # visit each node
+    # add count when each node is visited
+    # return count 
+    count = 0
+    return count if !root
+    count += 1
+    count_nodes(root.left) if root.left
+    count_nodes(root.right) if root.right
+    puts "count is #{count}"
+  end
+
 end
 
 
@@ -36,4 +48,4 @@ node2.right = node5
 
 
 tree = BinaryTree.new(root)
-p tree
+p tree.count_nodes(root)
